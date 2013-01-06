@@ -24,5 +24,6 @@ __all__ = [
     'cuckoosigs',
     'tomutexes',
     'toprocesses',
-    'submitfile'
+    'submitfile',
+    'submiturl'
 ]

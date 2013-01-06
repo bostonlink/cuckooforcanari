@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
-import os.path
 from time import sleep
 from canari.framework import configure
-from canari.config import config
-from common.entities import CuckooMalwareSample, CuckooTaskID
-from common.cuckooapi import submit_file, task_view
+from canari.maltego.entities import URL
+from common.entities import CuckooTaskID
+from common.cuckooapi import submit_url, task_view
 
 __author__ = 'bostonlink'
 __copyright__ = 'Copyright 2013, Cuckooforcanari Project'
@@ -23,17 +22,17 @@ __all__ = [
 ]
 
 @configure(
-    label='Submit URL for Analysis [Cuckoo Sandbox]',
-    description='Submits a URL to Cuckoo and returns the analysis task id after analysis is complete.',
+    label='Submit File for Analysis [Cuckoo Sandbox]',
+    description='Submits a file sample to Cuckoo and returns the analysis task id after analysis is complete.',
     uuids=[ 'cuckooforcanari.v2.SubmitURL_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooMalwareSample ) ],
+    inputs=[ ( 'Cuckoo Sandbox', URL ) ],
     debug=True
 )
 
 def dotransform(request, response):
 
-	sample = os.path.join(config['cuckoo/malware_dir'], request.value)
-	task = submit_file(sample)['task_id']
+	url = request.value
+	task = submit_url(url)['task_id']
 	status = task_view(task)['task']['status']
 
 	# Check status of task loop
@@ -44,7 +43,7 @@ def dotransform(request, response):
 	response += CuckooTaskID(
                 task,
                 status = status,
-                filename = sample
+                url = url
 	    )
 
 	return response
