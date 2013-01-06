@@ -55,8 +55,12 @@ All Done!!  Have fun!
 
 ## Special Thanks!
 
-* Rich Popson (@Rastafari0728)<br/>
-* Nadeem Douba (@ndouba)<br/>
-* Paterva (@Paterva)<br/>
-* Cuckoo Sandbox (@cuckoosandbox)
-* MassHackers (@MassHackers)<br/>
+Rich Popson (@Rastafari0728)<br/>
+* Contributior
+* Awesome video maker!
+* Drinking partner ;)
+
+Nadeem Douba (@ndouba)<br/>
+Paterva (@Paterva)<br/>
+Cuckoo Sandbox (@cuckoosandbox)
+MassHackers (@MassHackers)<br/>
