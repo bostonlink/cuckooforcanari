@@ -22,8 +22,8 @@ __all__ = [
 ]
 
 @configure(
-    label='Submit File for Analysis [Cuckoo Sandbox]',
-    description='Submits a file sample to Cuckoo and returns the analysis task id after analysis is complete.',
+    label='Submit URL for Analysis [Cuckoo Sandbox]',
+    description='Submits a url to Cuckoo and returns the analysis task id after analysis is complete.',
     uuids=[ 'cuckooforcanari.v2.SubmitURL_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox', URL ) ],
     debug=True
