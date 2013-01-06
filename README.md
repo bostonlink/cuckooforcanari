@@ -27,6 +27,9 @@ cuckooforcanari is supported and tested on Python 2.7.3
 The canari framework must be installed to use this package
 See: https://github.com/allfro/canari
 
+A Cuckoo Sandbox v0.5 local network or host installation and have the Cuckoo API running.
+See: http://www.cuckoosandbox.org/
+
 This package depends on the python requests package (added requirements source into the project)
 
 ### 2.3 - How to install
