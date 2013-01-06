@@ -55,12 +55,12 @@ All Done!!  Have fun!
 
 ## Special Thanks!
 
-Rich Popson (@Rastafari0728)<br/>
+Rich Popson (@Rastafari0728)
 * Contributior
 * Awesome video maker!
 * Drinking partner ;)
 
 Nadeem Douba (@ndouba)<br/>
 Paterva (@Paterva)<br/>
-Cuckoo Sandbox (@cuckoosandbox)
+Cuckoo Sandbox (@cuckoosandbox)<br/>
 MassHackers (@MassHackers)<br/>
