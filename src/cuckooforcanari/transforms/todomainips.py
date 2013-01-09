@@ -17,16 +17,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Domain IP [Cuckoo Sandbox]',
-    description='Returns domain resolved IP address at the time of the Cuckoo file analysis.',
-    uuids=[ 'cuckooforcanari.v2.IDToDomainIP_Cuckoo', 'cuckooforcanari.v2.FileToDomainIP_Cuckoo', 'cuckooforcanari.v2.DomainToDomainIP_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ), ( 'Cuckoo Sandbox', Domain) ],
-    debug=True
+	label='To Domain IP [Cuckoo Sandbox]',
+	description='Returns domain resolved IP address at the time of the Cuckoo file analysis.',
+	uuids=[ 'cuckooforcanari.v2.IDToDomainIP_Cuckoo', 'cuckooforcanari.v2.FileToDomainIP_Cuckoo', 'cuckooforcanari.v2.DomainToDomainIP_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ), ( 'Cuckoo Sandbox', Domain) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -40,8 +40,8 @@ def dotransform(request, response):
 	netw = network(report(task))
 	for d in netw['domains']:
 			response += IPv4Address(
-                d['ip'].decode('ascii'),
-                taskid = task
-	        )
+				d['ip'].decode('ascii'),
+				taskid = task
+			)
 
 	return response

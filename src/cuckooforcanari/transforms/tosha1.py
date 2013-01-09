@@ -16,16 +16,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To SHA1 [Cuckoo Sandbox]',
-    description='Returns filename of the initial file analyzed.',
-    uuids=[ 'cuckooforcanari.v2.IDToSHA1_Cuckoo', 'cuckooforcanari.v2.FileToSHA1_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename )  ],
-    debug=True
+	label='To SHA1 [Cuckoo Sandbox]',
+	description='Returns filename of the initial file analyzed.',
+	uuids=[ 'cuckooforcanari.v2.IDToSHA1_Cuckoo', 'cuckooforcanari.v2.FileToSHA1_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename )  ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -39,8 +39,8 @@ def dotransform(request, response):
 	target = target_info(report(task))['file']
 	
 	response += CuckooHash(
-                target['sha1'].decode('ascii'),
-                taskid = task
-	        )
+				target['sha1'].decode('ascii'),
+				taskid = task
+			)
 
 	return response

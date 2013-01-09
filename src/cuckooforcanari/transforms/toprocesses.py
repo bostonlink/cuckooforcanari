@@ -16,16 +16,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Processes [Cuckoo Sandbox]',
-    description='Returns processes created during the Cuckoo analysis.',
-    uuids=[ 'cuckooforcanari.v2.IDToCuckooProcess_Cuckoo', 'cuckooforcanari.v2.FileToCuckooProcess_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-    debug=True
+	label='To Processes [Cuckoo Sandbox]',
+	description='Returns processes created during the Cuckoo analysis.',
+	uuids=[ 'cuckooforcanari.v2.IDToCuckooProcess_Cuckoo', 'cuckooforcanari.v2.FileToCuckooProcess_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -39,8 +39,8 @@ def dotransform(request, response):
 	processes = behavior(report(task))['processes']
 	for d in processes:
 		response += CuckooProcess(
-                d['process_name'].decode('ascii'),
-                taskid = task,
-	    )
+				d['process_name'].decode('ascii'),
+				taskid = task,
+		)
 
 	return response

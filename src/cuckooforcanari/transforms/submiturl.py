@@ -17,16 +17,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='Submit URL for Analysis [Cuckoo Sandbox]',
-    description='Submits a url to Cuckoo and returns the analysis task id after analysis is complete.',
-    uuids=[ 'cuckooforcanari.v2.SubmitURL_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', URL ) ],
-    debug=True
+	label='Submit URL for Analysis [Cuckoo Sandbox]',
+	description='Submits a url to Cuckoo and returns the analysis task id after analysis is complete.',
+	uuids=[ 'cuckooforcanari.v2.SubmitURL_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', URL ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -41,9 +41,9 @@ def dotransform(request, response):
 		status = task_view(task)['task']['status']
 
 	response += CuckooTaskID(
-                task,
-                status = status,
-                url = url
-	    )
+				task,
+				status = status,
+				url = url
+		)
 
 	return response

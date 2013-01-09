@@ -16,16 +16,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Yara Signatures [Cuckoo Sandbox]',
-    description='Returns Yara signature names associated with the Cuckoo analysis task id.',
-    uuids=[ 'cuckooforcanari.v2.IDToYaraSigs_Cuckoo', 'cuckooforcanari.v2.FileToYaraSigs_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-    debug=True
+	label='To Yara Signatures [Cuckoo Sandbox]',
+	description='Returns Yara signature names associated with the Cuckoo analysis task id.',
+	uuids=[ 'cuckooforcanari.v2.IDToYaraSigs_Cuckoo', 'cuckooforcanari.v2.FileToYaraSigs_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -41,8 +41,8 @@ def dotransform(request, response):
 		for k, v in d.iteritems():
 			if 'meta' in k:
 				response += CuckooYara(
-                	v['description'].decode('ascii'),
-                	taskid = task,
-	            )
+					v['description'].decode('ascii'),
+					taskid = task,
+				)
 
 	return response

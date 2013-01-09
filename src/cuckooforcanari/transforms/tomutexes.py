@@ -16,16 +16,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Mutexes [Cuckoo Sandbox]',
-    description='Returns mutexes created during the Cuckoo analysis.',
-    uuids=[ 'cuckooforcanari.v2.IDToCuckooMutex_Cuckoo', 'cuckooforcanari.v2.FileToCuckooMutex_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-    debug=True
+	label='To Mutexes [Cuckoo Sandbox]',
+	description='Returns mutexes created during the Cuckoo analysis.',
+	uuids=[ 'cuckooforcanari.v2.IDToCuckooMutex_Cuckoo', 'cuckooforcanari.v2.FileToCuckooMutex_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -39,8 +39,8 @@ def dotransform(request, response):
 	mutexes = behavior(report(task))['summary']['mutexes']
 	for d in mutexes:
 		response += CuckooMutex(
-                d.decode('ascii'),
-                taskid = task,
-	    )
+				d.decode('ascii'),
+				taskid = task,
+		)
 
 	return response

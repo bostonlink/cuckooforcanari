@@ -17,16 +17,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Hosts [Cuckoo Sandbox]',
-    description='Returns host IP addresses associated with the Cuckoo analysis task id.',
-    uuids=[ 'cuckooforcanari.v2.IDToHosts_Cuckoo', 'cuckooforcanari.v2.FileToHosts_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-    debug=True
+	label='To Hosts [Cuckoo Sandbox]',
+	description='Returns host IP addresses associated with the Cuckoo analysis task id.',
+	uuids=[ 'cuckooforcanari.v2.IDToHosts_Cuckoo', 'cuckooforcanari.v2.FileToHosts_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -40,8 +40,8 @@ def dotransform(request, response):
 	netw = network(report(task))
 	for d in netw['hosts']:
 			response += IPv4Address(
-                d.decode('ascii'),
-                taskid = task
-	        )
+				d.decode('ascii'),
+				taskid = task
+			)
 
 	return response

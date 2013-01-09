@@ -16,16 +16,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Filename [Cuckoo Sandbox]',
-    description='Returns filename of the initial file analyzed.',
-    uuids=[ 'cuckooforcanari.v2.IDToFilename_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ) ],
-    debug=True
+	label='To Filename [Cuckoo Sandbox]',
+	description='Returns filename of the initial file analyzed.',
+	uuids=[ 'cuckooforcanari.v2.IDToFilename_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -39,8 +39,8 @@ def dotransform(request, response):
 	target = target_info(report(task))
 	
 	response += CuckooMalwareFilename(
-                target['file']['name'].decode('ascii'),
-                taskid = task
-	        )
+				target['file']['name'].decode('ascii'),
+				taskid = task
+			)
 
 	return response

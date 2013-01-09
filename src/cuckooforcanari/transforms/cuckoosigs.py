@@ -16,16 +16,16 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-    'dotransform',
-    'onterminate'
+	'dotransform',
+	'onterminate'
 ]
 
 @configure(
-    label='To Cuckoo Community Signatures [Cuckoo Sandbox]',
-    description='Returns Cuckoo signature names hit during the Cuckoo file analysis.',
-    uuids=[ 'cuckooforcanari.v2.IDToCuckooSigs_Cuckoo', 'cuckooforcanari.v2.FileToCuckooSigs_Cuckoo' ],
-    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-    debug=True
+	label='To Cuckoo Community Signatures [Cuckoo Sandbox]',
+	description='Returns Cuckoo signature names hit during the Cuckoo file analysis.',
+	uuids=[ 'cuckooforcanari.v2.IDToCuckooSigs_Cuckoo', 'cuckooforcanari.v2.FileToCuckooSigs_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	debug=True
 )
 
 def dotransform(request, response):
@@ -39,8 +39,8 @@ def dotransform(request, response):
 	csigz = cuckoo_sigs(report(task))
 	for d in csigz:
 		response += CuckooSig(
-                d['description'].decode('ascii'),
-                taskid = task,
-	    )
+				d['description'].decode('ascii'),
+				taskid = task,
+		)
 
 	return response
