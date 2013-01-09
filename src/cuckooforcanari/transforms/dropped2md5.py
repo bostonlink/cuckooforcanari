@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooDropped, CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooDropped, CuckooHash
 from common.cuckooapi import report
 from common.cuckooparse import dropped_files
 
@@ -21,10 +21,10 @@ __all__ = [
 ]
 
 @configure(
-	label='To Dropped Files [Cuckoo Sandbox]',
-	description='Returns dropped files during the Cuckoo file analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToDropped_Cuckoo', 'cuckooforcanari.v2.FileToDropped_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	label='To Dropped MD5 [Cuckoo Sandbox]',
+	description='Returns dropped file MD5 hash',
+	uuids=[ 'cuckooforcanari.v2.ToDroppedMD5_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooDropped ) ],
 	debug=True
 )
 
@@ -38,10 +38,6 @@ def dotransform(request, response):
 	# TODO Figure out the link, notes, and bookmark entity props
 	dropped = dropped_files(report(task))
 	for d in dropped:
-			response += CuckooDropped(
-				d['name'].decode('ascii'),
-				taskid = task,
-				ftype = d['type']
-			)
+			response += Phrase(d['md5'].decode('ascii'))
 
 	return response
