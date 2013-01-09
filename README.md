@@ -2,6 +2,8 @@
 
 Author : David Bressler (@bostonlink)
 
+Demo Video: http://www.youtube.com/watch?v=1GGArfEijgE
+
 ## About
 
 Cuckooforcanari is a Maltego local transform project, built within the Canari Framework that integrates the Cuckoo Sandbox v0.5 API into maltego entity output.  The main goal of this project is to allow security analysts, researchers, investigators, and teams to graphically display a Cuckoo Sandbox file analysis. 
@@ -56,7 +58,7 @@ All Done!!  Have fun!
 ## Special Thanks!
 
 Rich Popson (@Rastafari0728)
-* Contributior
+* Contributor
 * Awesome video maker!
 * Drinking partner ;)
 
