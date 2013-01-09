@@ -30,6 +30,7 @@ __all__ = [
 )
 
 def dotransform(request, response):
+	fname = request.value
 
 	if 'taskid' in request.fields:
 		task = request.fields['taskid']
@@ -39,6 +40,7 @@ def dotransform(request, response):
 	# TODO Figure out the link, notes, and bookmark entity props
 	dropped = dropped_files(report(task))
 	for d in dropped:
+		if d['name'] == fname:
 			response += Phrase(d['type'].decode('ascii'))
 
 	return response
