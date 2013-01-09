@@ -38,6 +38,6 @@ def dotransform(request, response):
 	# TODO Figure out the link, notes, and bookmark entity props
 	dropped = dropped_files(report(task))
 	for d in dropped:
-			response += Phrase(d['sha256'].decode('ascii'))
+			response += CuckooHash(d['sha256'].decode('ascii'))
 
 	return response
