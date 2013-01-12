@@ -35,7 +35,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	ysigz = yara_sigs(report(task))
 	for d in ysigz:
 		for k, v in d.iteritems():

@@ -36,7 +36,7 @@ def dotransform(request, response):
 	task = submit_file(sample)['task_id']
 	status = task_view(task)['task']['status']
 
-	# Check status of task loop
+	# loop to check status of analysis
 	while status == 'pending' or status == 'processing':
 		sleep(20)
 		status = task_view(task)['task']['status']

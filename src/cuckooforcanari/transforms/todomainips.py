@@ -36,7 +36,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	netw = network(report(task))
 	for d in netw['domains']:
 			response += IPv4Address(

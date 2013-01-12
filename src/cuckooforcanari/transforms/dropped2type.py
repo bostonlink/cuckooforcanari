@@ -37,7 +37,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	dropped = dropped_files(report(task))
 	for d in dropped:
 		if d['name'] == fname:

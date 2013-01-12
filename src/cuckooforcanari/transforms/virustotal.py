@@ -35,7 +35,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	vt = vt_results(report(task))
 	if vt['response_code'] == 1:
 		for k, v in vt['scans'].iteritems():

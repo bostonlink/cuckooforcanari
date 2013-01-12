@@ -35,7 +35,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	mutexes = behavior(report(task))['summary']['mutexes']
 	for d in mutexes:
 		response += CuckooMutex(

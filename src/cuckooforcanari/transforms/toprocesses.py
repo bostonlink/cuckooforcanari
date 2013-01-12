@@ -35,7 +35,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	processes = behavior(report(task))['processes']
 	for d in processes:
 		response += CuckooProcess(

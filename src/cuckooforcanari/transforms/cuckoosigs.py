@@ -35,7 +35,6 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	# TODO Figure out the link, notes, and bookmark entity props
 	csigz = cuckoo_sigs(report(task))
 	for d in csigz:
 		response += CuckooSig(
