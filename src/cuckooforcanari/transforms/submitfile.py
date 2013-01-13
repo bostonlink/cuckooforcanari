@@ -36,7 +36,8 @@ def dotransform(request, response):
 		msg = 'Please select the sample to submit.'
 		title = 'Cuckoo Sandbox File Submission'
 		default = os.path.join(config['cuckoo/malware_dir'], '*.*')
-		filetypes = ["*.exe", "*.dll", "*.pdf", "*.jar", "*.zip", "*.html", "*.class"]
+		# if other filetypes need to be submitted add them to the list or just submit via specific filename
+		filetypes = ["*.exe", "*.dll", "*.pdf", "*.jar", "*.zip"]
 		sample = fileopenbox(msg, title, default, filetypes)
 	else:
 		sample = os.path.join(config['cuckoo/malware_dir'], request.value)
