@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns filename of the initial file analyzed.',
 	uuids=[ 'cuckooforcanari.v2.IDToFilename_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

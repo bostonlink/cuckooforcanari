@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns dropped file MD5 hash',
 	uuids=[ 'cuckooforcanari.v2.ToDroppedMD5_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooDropped ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

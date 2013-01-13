@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns Cuckoo signature names hit during the Cuckoo file analysis.',
 	uuids=[ 'cuckooforcanari.v2.IDToCuckooSigs_Cuckoo', 'cuckooforcanari.v2.FileToCuckooSigs_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

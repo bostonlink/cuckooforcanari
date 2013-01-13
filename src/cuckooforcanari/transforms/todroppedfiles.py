@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns dropped files during the Cuckoo file analysis.',
 	uuids=[ 'cuckooforcanari.v2.IDToDropped_Cuckoo', 'cuckooforcanari.v2.FileToDropped_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

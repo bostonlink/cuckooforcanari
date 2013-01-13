@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns processes created during the Cuckoo analysis.',
 	uuids=[ 'cuckooforcanari.v2.IDToCuckooProcess_Cuckoo', 'cuckooforcanari.v2.FileToCuckooProcess_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

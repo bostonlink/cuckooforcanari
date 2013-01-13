@@ -26,7 +26,7 @@ __all__ = [
 	description='Submits a url to Cuckoo and returns the analysis task id after analysis is complete.',
 	uuids=[ 'cuckooforcanari.v2.SubmitURL_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', URL ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

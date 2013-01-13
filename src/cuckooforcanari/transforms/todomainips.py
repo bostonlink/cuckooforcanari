@@ -26,7 +26,7 @@ __all__ = [
 	description='Returns domain resolved IP address at the time of the Cuckoo file analysis.',
 	uuids=[ 'cuckooforcanari.v2.IDToDomainIP_Cuckoo', 'cuckooforcanari.v2.FileToDomainIP_Cuckoo', 'cuckooforcanari.v2.DomainToDomainIP_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ), ( 'Cuckoo Sandbox', Domain) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

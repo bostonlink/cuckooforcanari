@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns mutexes created during the Cuckoo analysis.',
 	uuids=[ 'cuckooforcanari.v2.IDToCuckooMutex_Cuckoo', 'cuckooforcanari.v2.FileToCuckooMutex_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

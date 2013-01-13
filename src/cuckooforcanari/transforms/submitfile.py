@@ -27,7 +27,7 @@ __all__ = [
 	description='Submits a File to Cuckoo and returns the analysis task id after analysis is complete.',
 	uuids=[ 'cuckooforcanari.v2.SubmitFile_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooMalwareSample ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

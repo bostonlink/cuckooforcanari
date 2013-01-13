@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns Yara signature names associated with the Cuckoo analysis task id.',
 	uuids=[ 'cuckooforcanari.v2.IDToVTresults_Cuckoo', 'cuckooforcanari.v2.FileToVTResults_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

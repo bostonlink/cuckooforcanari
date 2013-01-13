@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns filename of the initial file analyzed.',
 	uuids=[ 'cuckooforcanari.v2.IDToMD5_Cuckoo', 'cuckooforcanari.v2.FileToMD5_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename )  ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):

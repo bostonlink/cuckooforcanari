@@ -25,7 +25,7 @@ __all__ = [
 	description='Returns dropped file SHA256 hash',
 	uuids=[ 'cuckooforcanari.v2.ToDroppedSHA256_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooDropped ) ],
-	debug=True
+	debug=False
 )
 
 def dotransform(request, response):
