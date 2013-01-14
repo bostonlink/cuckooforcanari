@@ -2,6 +2,7 @@
 
 import os.path
 from time import sleep
+from canari.easygui import fileopenbox
 from canari.framework import configure
 from canari.config import config
 from common.entities import CuckooMalwareSample, CuckooTaskID
