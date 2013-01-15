@@ -17,8 +17,7 @@ __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-	'dotransform',
-	'onterminate'
+	'dotransform'
 ]
 
 @configure(
