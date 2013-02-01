@@ -31,5 +31,5 @@ def dotransform(request, response):
 		task = request.fields['taskid']
 	else:
 		task = request.value
-	response += NetworkAnalysis('Signature Analysis', taskid = task)
+	response += NetworkAnalysis('Network Analysis', taskid = task)
 	return response
