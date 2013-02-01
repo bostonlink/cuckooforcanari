@@ -29,5 +29,12 @@ __all__ = [
     'tomutexes',
     'toprocesses',
     'submitfile',
-    'submiturl'
+    'submiturl',
+    'tofiledetails_section',
+    'tosiganalysis_section',
+    'tonetworkanalysis_section',
+    'tostaticanalysis_section',
+    'tofiledetails_section',
+    'tobehavior_section',
+    'toprocesses_section'
 ]
