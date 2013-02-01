@@ -25,6 +25,7 @@ __all__ = [
     'dropped2sha256',
     'todomains',
     'todomainips',
+    'todnsreq',
     'cuckoosigs',
     'tomutexes',
     'toprocesses',
