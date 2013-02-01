@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooHash, CuckooMalwareFilename, CuckooTaskID
+from common.entities import CuckooHash, FileDetails, CuckooMalwareFilename, CuckooTaskID
 from common.cuckooapi import report
 from common.cuckooparse import target_info
 
@@ -22,8 +22,12 @@ __all__ = [
 @configure(
 	label='To MD5 [Cuckoo Sandbox]',
 	description='Returns filename of the initial file analyzed.',
-	uuids=[ 'cuckooforcanari.v2.IDToMD5_Cuckoo', 'cuckooforcanari.v2.FileToMD5_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename )  ],
+	uuids=[ 'cuckooforcanari.v2.IDToMD5_Cuckoo',
+			'cuckooforcanari.v2.FileToMD5_Cuckoo',
+			'cuckooforcanari.v2.SectionToMD5_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', FileDetails ) ],
 	debug=False
 )
 
@@ -35,10 +39,8 @@ def dotransform(request, response):
 		task = request.value
 
 	target = target_info(report(task))['file']
-	
 	response += CuckooHash(
 				target['md5'].decode('ascii'),
-				taskid = task
-			)
+				taskid = task )
 
 	return response

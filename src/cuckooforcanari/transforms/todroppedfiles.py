@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooDropped, CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooDropped, DroppedFiles, CuckooTaskID, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import dropped_files
 
@@ -22,8 +22,12 @@ __all__ = [
 @configure(
 	label='To Dropped Files [Cuckoo Sandbox]',
 	description='Returns dropped files during the Cuckoo file analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToDropped_Cuckoo', 'cuckooforcanari.v2.FileToDropped_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToDropped_Cuckoo',
+			'cuckooforcanari.v2.FileToDropped_Cuckoo',
+			'cuckooforcanari.v2.SectionToDropped_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', DroppedFiles ) ],
 	debug=False
 )
 
@@ -39,7 +43,6 @@ def dotransform(request, response):
 			response += CuckooDropped(
 				d['name'].decode('ascii'),
 				taskid = task,
-				ftype = d['type']
-			)
+				ftype = d['type'] )
 
 	return response

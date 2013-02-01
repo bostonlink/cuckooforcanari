@@ -2,7 +2,7 @@
 
 from canari.framework import configure
 from canari.maltego.entities import IPv4Address
-from common.entities import CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooTaskID, NetworkAnalysis, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import network
 
@@ -23,8 +23,12 @@ __all__ = [
 @configure(
 	label='To Hosts [Cuckoo Sandbox]',
 	description='Returns host IP addresses associated with the Cuckoo analysis task id.',
-	uuids=[ 'cuckooforcanari.v2.IDToHosts_Cuckoo', 'cuckooforcanari.v2.FileToHosts_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToHosts_Cuckoo',
+			'cuckooforcanari.v2.FileToHosts_Cuckoo',
+			'cuckooforcanari.v2.SectionToHosts_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', NetworkAnalysis ) ],
 	debug=False
 )
 
@@ -39,7 +43,6 @@ def dotransform(request, response):
 	for d in netw['hosts']:
 			response += IPv4Address(
 				d.decode('ascii'),
-				taskid = task
-			)
+				taskid = task )
 
 	return response

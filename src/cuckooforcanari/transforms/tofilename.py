@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooMalwareFilename, CuckooTaskID
+from common.entities import CuckooMalwareFilename, FileDetails, CuckooTaskID
 from common.cuckooapi import report
 from common.cuckooparse import target_info
 
@@ -22,8 +22,8 @@ __all__ = [
 @configure(
 	label='To Filename [Cuckoo Sandbox]',
 	description='Returns filename of the initial file analyzed.',
-	uuids=[ 'cuckooforcanari.v2.IDToFilename_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToFilename_Cuckoo', 'cuckooforcanari.v2.SectionToFilename_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', FileDetails ) ],
 	debug=False
 )
 
@@ -38,7 +38,6 @@ def dotransform(request, response):
 	
 	response += CuckooMalwareFilename(
 				target['file']['name'].decode('ascii'),
-				taskid = task
-			)
+				taskid = task )
 
 	return response

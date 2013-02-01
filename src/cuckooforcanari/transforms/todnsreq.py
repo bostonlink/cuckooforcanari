@@ -2,7 +2,7 @@
 
 from canari.framework import configure
 from canari.maltego.entities import NSRecord
-from common.entities import CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooTaskID, NetworkAnalysis, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import network
 
@@ -23,8 +23,12 @@ __all__ = [
 @configure(
 	label='To DNS Request [Cuckoo Sandbox]',
 	description='Returns DNS requests made during the Cuckoo file analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToDNSReq_Cuckoo', 'cuckooforcanari.v2.FileToDNSReq_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToDNSReq_Cuckoo',
+			'cuckooforcanari.v2.FileToDNSReq_Cuckoo',
+			'cuckooforcanari.v2.SectionToDNSReq_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', NetworkAnalysis ) ],
 	debug=False
 )
 
@@ -41,8 +45,7 @@ def dotransform(request, response):
 		if d['request'] not in dns_lst:
 			response += NSRecord(
 				d['request'].decode('ascii'),
-				taskid = task
-			)
+				taskid = task )
 			dns_lst.append(d['request'])
 
 	return response
