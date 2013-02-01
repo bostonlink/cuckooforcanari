@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooVT, CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooVT, SignatureAnalysis, CuckooTaskID, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import vt_results
 
@@ -22,8 +22,12 @@ __all__ = [
 @configure(
 	label='To VirusTotal Results [Cuckoo Sandbox]',
 	description='Returns Yara signature names associated with the Cuckoo analysis task id.',
-	uuids=[ 'cuckooforcanari.v2.IDToVTresults_Cuckoo', 'cuckooforcanari.v2.FileToVTResults_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToVTresults_Cuckoo', 
+			'cuckooforcanari.v2.FileToVTResults_Cuckoo',
+			'cuckooforcanari.v2.SectionToVTResults_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', SignatureAnalysis )],
 	debug=False
 )
 

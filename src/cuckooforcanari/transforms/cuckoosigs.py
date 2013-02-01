@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooSig, CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooSig, SignatureAnalysis, CuckooTaskID, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import cuckoo_sigs
 
@@ -22,8 +22,12 @@ __all__ = [
 @configure(
 	label='To Cuckoo Community Signatures [Cuckoo Sandbox]',
 	description='Returns Cuckoo signature names hit during the Cuckoo file analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToCuckooSigs_Cuckoo', 'cuckooforcanari.v2.FileToCuckooSigs_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToCuckooSigs_Cuckoo',
+			'cuckooforcanari.v2.FileToCuckooSigs_Cuckoo',
+			'cuckooforcanari.v2.SectionToCuckooSigs_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', SignatureAnalysis )],
 	debug=False
 )
 
