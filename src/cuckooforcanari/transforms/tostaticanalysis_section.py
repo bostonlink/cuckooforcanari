@@ -21,7 +21,7 @@ __all__ = [
 	label='To Static Analysis Section [Cuckoo Sandbox]',
 	description='Returns static analysis section entity, used to separate analysis sections.',
 	uuids=[ 'cuckooforcanari.v2.IDToStaticAnalysissection_Cuckoo', 'cuckooforcanari.v2.FileToStaticAnalysisSection_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	inputs=[ ( 'Cuckoo Sandbox Analysis Sections', CuckooTaskID ), ( 'Cuckoo Sandbox Analysis Sections', CuckooMalwareFilename ) ],
 	debug=False
 )
 

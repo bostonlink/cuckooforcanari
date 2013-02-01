@@ -21,7 +21,7 @@ __all__ = [
 	label='To Dropped Files Section [Cuckoo Sandbox]',
 	description='Returns dropped files section entity, used to separate analysis sections.',
 	uuids=[ 'cuckooforcanari.v2.IDToDroppedFilessection_Cuckoo', 'cuckooforcanari.v2.FileToDroppedFilesSection_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	inputs=[ ( 'Cuckoo Sandbox Analysis Sections', CuckooTaskID ), ( 'Cuckoo Sandbox Analysis Sections', CuckooMalwareFilename ) ],
 	debug=False
 )
 
