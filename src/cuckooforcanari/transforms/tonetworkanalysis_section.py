@@ -19,7 +19,7 @@ __all__ = [
 
 @configure(
 	label='To Network Analysis Section [Cuckoo Sandbox]',
-	description='Returns signature analysis section entity, used to separate analysis sections.',
+	description='Returns network analysis section entity, used to separate analysis sections.',
 	uuids=[ 'cuckooforcanari.v2.IDToNetAnalysissection_Cuckoo', 'cuckooforcanari.v2.FileToNetAnalysisSection_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
 	debug=False
