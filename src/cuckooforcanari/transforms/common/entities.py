@@ -23,7 +23,15 @@ __all__ = [
     'CuckooYara',
     'CuckooMutex',
     'CuckooProcess',
-    'CuckooMalwareSample'
+    'CuckooMalwareSample',
+    'FileDetails',
+    'SignatureAnalysis',
+    'NetworkAnalysis',
+    'StaticAnalysis',
+    'DroppedFiles',
+    'BehaviorAnalysis',
+    'Processes'
+
 ]
 
 @EntityField(name='taskid', propname='taskid', displayname='Task ID')
@@ -63,4 +71,25 @@ class CuckooMutex(CuckooEntity):
     pass
 
 class CuckooProcess(CuckooEntity):
+    pass
+
+class FileDetails(CuckooEntity):
+    pass
+
+class SignatureAnalysis(CuckooEntity):
+    pass
+
+class NetworkAnalysis(CuckooEntity):
+    pass
+
+class StaticAnalysis(CuckooEntity):
+    pass
+
+class DroppedFiles(CuckooEntity):
+    pass
+
+class BehaviorAnalysis(CuckooEntity):
+    pass
+
+class Processes(CuckooEntity):
     pass
