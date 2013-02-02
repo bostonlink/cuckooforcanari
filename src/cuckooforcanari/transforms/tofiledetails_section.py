@@ -20,7 +20,7 @@ __all__ = [
 @configure(
 	label='To File Details Section [Cuckoo Sandbox]',
 	description='Returns file details section entity, to separate analysis sections.',
-	uuids=[ 'cuckooforcanari.v2.IDToFileDetails_Cuckoo', 'cuckooforcanari.v2.FileToFileDetails_Cuckoo' ],
+	uuids=[ 'cuckooforcanari.v2.IDToFileDetailsSection_Cuckoo', 'cuckooforcanari.v2.FileToFileDetailsSection_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox Analysis Sections', CuckooTaskID ), ( 'Cuckoo Sandbox Analysis Sections', CuckooMalwareFilename ) ],
 	debug=False
 )
