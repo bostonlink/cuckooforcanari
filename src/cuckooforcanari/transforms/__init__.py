@@ -35,7 +35,7 @@ __all__ = [
     'tosiganalysis_section',
     'tonetworkanalysis_section',
     'tostaticanalysis_section',
-    'tofiledetails_section',
+    'todropped_section',
     'tobehavior_section',
     'toprocesses_section'
 ]

@@ -20,7 +20,7 @@ __all__ = [
 @configure(
 	label='To Static Analysis Section [Cuckoo Sandbox]',
 	description='Returns static analysis section entity, used to separate analysis sections.',
-	uuids=[ 'cuckooforcanari.v2.IDToStaticAnalysissection_Cuckoo', 'cuckooforcanari.v2.FileToStaticAnalysisSection_Cuckoo' ],
+	uuids=[ 'cuckooforcanari.v2.IDToStaticAnalysisSection_Cuckoo', 'cuckooforcanari.v2.FileToStaticAnalysisSection_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox Analysis Sections', CuckooTaskID ), ( 'Cuckoo Sandbox Analysis Sections', CuckooMalwareFilename ) ],
 	debug=False
 )
