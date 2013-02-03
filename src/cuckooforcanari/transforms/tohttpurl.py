@@ -23,9 +23,9 @@ __all__ = [
 @configure(
 	label='To HTTP Request URL [Cuckoo Sandbox]',
 	description='Returns URLs communicated with at the time of the Cuckoo file analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToDomainIP_Cuckoo',
-			'cuckooforcanari.v2.FileToDomainIP_Cuckoo',
-			'cuckooforcanari.v2.SectionToDomainIP_Cuckoo' ],
+	uuids=[ 'cuckooforcanari.v2.IDToURL_Cuckoo',
+			'cuckooforcanari.v2.FileToURL_Cuckoo',
+			'cuckooforcanari.v2.SectionToURL_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
 		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
 		( 'Cuckoo Sandbox', NetworkAnalysis) ],
