@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from canari.maltego.entities import Domain
+from canari.maltego.entities import URL
 from common.entities import CuckooTaskID, NetworkAnalysis, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import network
@@ -21,14 +21,14 @@ __all__ = [
 ]
 
 @configure(
-	label='To Domain [Cuckoo Sandbox]',
-	description='Returns domains communicated with during the Cuckoo file analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToDomain_Cuckoo',
-			'cuckooforcanari.v2.FileToDomain_Cuckoo',
-			'cuckooforcanari.v2.SectionToDomain_Cuckoo' ],
+	label='To HTTP Request URL [Cuckoo Sandbox]',
+	description='Returns URLs communicated with at the time of the Cuckoo file analysis.',
+	uuids=[ 'cuckooforcanari.v2.IDToDomainIP_Cuckoo',
+			'cuckooforcanari.v2.FileToDomainIP_Cuckoo',
+			'cuckooforcanari.v2.SectionToDomainIP_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
 		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
-		( 'Cuckoo Sandbox', NetworkAnalysis ) ],
+		( 'Cuckoo Sandbox', NetworkAnalysis) ],
 	debug=False
 )
 
@@ -40,9 +40,9 @@ def dotransform(request, response):
 		task = request.value
 
 	netw = network(report(task))
-	for d in netw['domains']:
-			response += Domain(
-				d['domain'].decode('ascii'),
+	for d in netw['http']:
+			response += URL(
+				d['uri'].decode('ascii'),
 				taskid = task )
 
 	return response
