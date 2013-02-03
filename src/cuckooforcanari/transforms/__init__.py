@@ -26,6 +26,7 @@ __all__ = [
     'todomains',
     'todomainips',
     'todnsreq',
+    'tohttpurl',
     'cuckoosigs',
     'tomutexes',
     'toprocesses',
