@@ -49,6 +49,9 @@ class CuckooSig(CuckooEntity):
 @EntityField(name='ftype', propname='ftype', displayname='File Type')
 class CuckooDropped(CuckooEntity):
     pass
+    
+class CuckooOpenFile(CuckooEntity):
+    pass
 
 class CuckooMalwareFilename(CuckooEntity):
     pass

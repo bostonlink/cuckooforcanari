@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from canari.maltego.entities import Phrase
-from common.entities import BehaviorAnalysis, CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooOpenFile, BehaviorAnalysis, CuckooTaskID, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import behavior
 
@@ -21,11 +20,11 @@ __all__ = [
 ]
 
 @configure(
-	label='To Registry Keys [Cuckoo Sandbox]',
-	description='Returns registry keys created during the Cuckoo analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToCuckooRegKeys_Cuckoo',
-			'cuckooforcanari.v2.FileToCuckooRegKeys_Cuckoo',
-			'cuckooforcanari.v2.SectionToCuckooRegKeys_Cuckoo' ],
+	label='To Files Opened [Cuckoo Sandbox]',
+	description='Returns opened and created files during the Cuckoo analysis.',
+	uuids=[ 'cuckooforcanari.v2.IDToCuckooFOpen_Cuckoo',
+			'cuckooforcanari.v2.FileToCuckooFOpen_Cuckoo',
+			'cuckooforcanari.v2.SectionToCuckooFOpen_Cuckoo' ],
 	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
 		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
 		( 'Cuckoo Sandbox', BehaviorAnalysis ) ],
@@ -39,8 +38,9 @@ def dotransform(request, response):
 	else:
 		task = request.value
 
-	reg = behavior(report(task))['summary']['keys']
-	for d in reg:
-		response += Phrase(d.decode('ascii'))
+	files = behavior(report(task))['summary']['files']
+	for d in files:
+		response += CuckooOpenFile(d.decode('ascii'),
+					taskid = task)
 
 	return response
