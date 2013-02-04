@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from common.entities import CuckooMutex, CuckooTaskID, CuckooMalwareFilename
+from common.entities import CuckooMutex, BehaviorAnalysis, CuckooTaskID, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import behavior
 
@@ -22,8 +22,12 @@ __all__ = [
 @configure(
 	label='To Mutexes [Cuckoo Sandbox]',
 	description='Returns mutexes created during the Cuckoo analysis.',
-	uuids=[ 'cuckooforcanari.v2.IDToCuckooMutex_Cuckoo', 'cuckooforcanari.v2.FileToCuckooMutex_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', CuckooMalwareFilename ) ],
+	uuids=[ 'cuckooforcanari.v2.IDToCuckooMutex_Cuckoo',
+			'cuckooforcanari.v2.FileToCuckooMutex_Cuckoo',
+			'cuckooforcanari.v2.SectionToCuckooMutex_Cuckoo' ],
+	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+		( 'Cuckoo Sandbox', BehaviorAnalysis ) ],
 	debug=False
 )
 
@@ -38,7 +42,6 @@ def dotransform(request, response):
 	for d in mutexes:
 		response += CuckooMutex(
 				d.decode('ascii'),
-				taskid = task,
-		)
+				taskid = task )
 
 	return response
