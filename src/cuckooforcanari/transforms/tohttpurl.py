@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from canari.framework import configure
-from canari.maltego.entities import URL
+from canari.maltego.entities import Phrase
 from common.entities import CuckooTaskID, NetworkAnalysis, CuckooMalwareFilename
 from common.cuckooapi import report
 from common.cuckooparse import network
@@ -41,7 +41,7 @@ def dotransform(request, response):
 
 	netw = network(report(task))
 	for d in netw['http']:
-			response += URL(
+			response += Phrase(
 				d['uri'].decode('ascii'),
 				taskid = task )
 
