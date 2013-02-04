@@ -29,6 +29,8 @@ __all__ = [
     'tohttpurl',
     'cuckoosigs',
     'tomutexes',
+    'toopenfiles',
+    'toregentries',
     'toprocesses',
     'submitfile',
     'submiturl',
