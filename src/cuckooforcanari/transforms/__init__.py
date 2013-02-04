@@ -34,6 +34,7 @@ __all__ = [
     'toprocesses',
     'submitfile',
     'submiturl',
+    'to_pesections',
     'tofiledetails_section',
     'tosiganalysis_section',
     'tonetworkanalysis_section',
