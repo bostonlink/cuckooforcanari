@@ -35,6 +35,7 @@ __all__ = [
     'submitfile',
     'submiturl',
     'to_pesections',
+    'to_peid',
     'tofiledetails_section',
     'tosiganalysis_section',
     'tonetworkanalysis_section',
