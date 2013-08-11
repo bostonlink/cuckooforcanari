@@ -62,7 +62,7 @@ Then do the following (thanks to Nadeem Douba @ndouba):
 Once installed you must edit the cuckooforcanari.conf file with local environment settings.
 
 ```bash
-$ vim cuckooforcanari/cuckooforcanari.conf
+$ vim ~/.canari/cuckooforcanari.conf
 ```
 All Done!!  Have fun!
 
