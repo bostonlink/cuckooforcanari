@@ -9,7 +9,7 @@ def analysis_info(report):
 
 # Returns list of yara signatures
 def yara_sigs(report):
-	return report['yara']
+	return report['target']['file']['yara']
 
 # Returns list of cuckoo signatures
 def cuckoo_sigs(report):
