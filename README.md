@@ -32,7 +32,7 @@ See: https://github.com/allfro/canari
 A Cuckoo Sandbox v0.5 or later local network or host installation and have the Cuckoo API running.
 See: http://www.cuckoosandbox.org/
 
-This package depends on the python requests package (added requests source into the project)
+This package depends on the python requests package added requirement to setup.py will automatically download and install the requests package if needed.
 
 ### 2.3 - How to install
 Once you have the Canari framework installed and working, follow the directions below to install cuckooforcanari
@@ -68,12 +68,8 @@ All Done!!  Have fun!
 
 ## Special Thanks!
 
-Rich Popson (@Rastafari0728)
-* Contributor
-* Awesome video maker!
-* Drinking partner ;)
-
-Nadeem Douba (@ndouba)<br/>
-Paterva (@Paterva)<br/>
-Cuckoo Sandbox (@cuckoosandbox)<br/>
-MassHackers (@MassHackers)<br/>
+Rich Popson (@Rastafari0728)  
+Nadeem Douba (@ndouba)  
+Paterva (@Paterva)  
+Cuckoo Sandbox (@cuckoosandbox)  
+MassHackers (@MassHackers)  
