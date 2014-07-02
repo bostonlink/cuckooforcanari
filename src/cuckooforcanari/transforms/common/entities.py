@@ -37,7 +37,7 @@ __all__ = [
 
 @EntityField(name='taskid', propname='taskid', displayname='Task ID')
 class CuckooEntity(Entity):
-    namespace = 'cuckoo'
+    _namespace_ = 'cuckoo'
 
 
 @EntityField(name='filename', propname='filename', displayname='Filename')
