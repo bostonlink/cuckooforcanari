@@ -7,42 +7,42 @@ from common.cuckooapi import report
 from common.cuckooparse import static_results
 
 __author__ = 'bostonlink'
-__copyright__ = 'Copyright 2013, Cuckooforcanari Project'
+__copyright__ = 'Copyright 2014, Cuckooforcanari Project'
 __credits__ = []
 
 __license__ = 'GPL'
-__version__ = '0.1'
+__version__ = '1.1'
 __maintainer__ = 'bostonlink'
 __email__ = 'bostonlink@pentest-labs.org'
 __status__ = 'Development'
 
 __all__ = [
-	'dotransform'
+    'dotransform'
 ]
 
-@configure(
-	label='To PEID Signature [Cuckoo Sandbox]',
-	description='Returns PEID signature of the malware sample.',
-	uuids=[ 'cuckooforcanari.v2.IDToCuckooPEIDSig_Cuckoo',
-			'cuckooforcanari.v2.FileToCuckooPEIDSig_Cuckoo',
-			'cuckooforcanari.v2.SectionToCuckooPEIDSig_Cuckoo' ],
-	inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
-		( 'Cuckoo Sandbox', CuckooMalwareFilename ),
-		( 'Cuckoo Sandbox', StaticAnalysis ) ],
-	debug=False
-)
 
+@configure(
+    label='To PEID Signature [Cuckoo Sandbox]',
+    description='Returns PEID signature of the malware sample.',
+    uuids=[ 'cuckooforcanari.v2.IDToCuckooPEIDSig_Cuckoo',
+            'cuckooforcanari.v2.FileToCuckooPEIDSig_Cuckoo',
+            'cuckooforcanari.v2.SectionToCuckooPEIDSig_Cuckoo' ],
+    inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
+        ( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+        ( 'Cuckoo Sandbox', StaticAnalysis ) ],
+    debug=False
+)
 def dotransform(request, response):
 
-	if 'taskid' in request.fields:
-		task = request.fields['taskid']
-	else:
-		task = request.value
+    if 'taskid' in request.fields:
+        task = request.fields['taskid']
+    else:
+        task = request.value
 
-	secs = static_results(report(task))['peid_signatures']
-	if secs == None:
-		pass
-	else:
-		response += Phrase(secs('ascii'))
+    secs = static_results(report(task))['peid_signatures']
+    if secs == None:
+        pass
+    else:
+        response += Phrase(secs('ascii'))
 
-	return response
+    return response
