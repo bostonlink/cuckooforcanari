@@ -30,9 +30,10 @@ __all__ = [
     inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
         ( 'Cuckoo Sandbox', CuckooMalwareFilename ),
         ( 'Cuckoo Sandbox', StaticAnalysis ) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
 
     if 'taskid' in request.fields:
         task = request.fields['taskid']
@@ -40,7 +41,7 @@ def dotransform(request, response):
         task = request.value
 
     secs = static_results(report(task))['peid_signatures']
-    if secs == None:
+    if secs is None:
         pass
     else:
         response += Phrase(secs('ascii'))

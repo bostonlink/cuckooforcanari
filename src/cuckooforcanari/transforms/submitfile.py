@@ -28,9 +28,10 @@ __all__ = [
     description='Submits a File to Cuckoo and returns the analysis task id after analysis is complete.',
     uuids=[ 'cuckooforcanari.v2.SubmitFile_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox', CuckooMalwareSample ) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
 
     if request.value == "Sample Filename":
         msg = 'Please select the sample to submit.'

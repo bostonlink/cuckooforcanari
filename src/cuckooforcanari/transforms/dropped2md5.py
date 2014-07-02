@@ -25,9 +25,10 @@ __all__ = [
     description='Returns dropped file MD5 hash',
     uuids=[ 'cuckooforcanari.v2.ToDroppedMD5_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox', CuckooDropped ) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
     fname = request.value
     if 'taskid' in request.fields:
         task = request.fields['taskid']

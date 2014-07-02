@@ -32,9 +32,10 @@ __all__ = [
         ( 'Cuckoo Sandbox', CuckooMalwareFilename ),
         ( 'Cuckoo Sandbox', Domain),
         ( 'Cuckoo Sandbox', NetworkAnalysis) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
 
     if 'taskid' in request.fields:
         task = request.fields['taskid']

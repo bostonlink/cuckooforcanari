@@ -26,9 +26,10 @@ __all__ = [
     description='Returns dropped file types during the Cuckoo file analysis.',
     uuids=[ 'cuckooforcanari.v2.IDToDroppedType_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox', CuckooDropped ) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
     fname = request.value
 
     if 'taskid' in request.fields:

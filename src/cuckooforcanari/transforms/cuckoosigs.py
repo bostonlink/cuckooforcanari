@@ -27,11 +27,12 @@ __all__ = [
             'cuckooforcanari.v2.FileToCuckooSigs_Cuckoo',
             'cuckooforcanari.v2.SectionToCuckooSigs_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ),
-        ( 'Cuckoo Sandbox', CuckooMalwareFilename ),
-        ( 'Cuckoo Sandbox', SignatureAnalysis )],
+             ( 'Cuckoo Sandbox', CuckooMalwareFilename ),
+             ( 'Cuckoo Sandbox', SignatureAnalysis )],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
 
     if 'taskid' in request.fields:
         task = request.fields['taskid']

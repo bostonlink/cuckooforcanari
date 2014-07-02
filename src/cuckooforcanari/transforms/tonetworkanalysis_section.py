@@ -23,9 +23,10 @@ __all__ = [
     description='Returns network analysis section entity, used to separate analysis sections.',
     uuids=[ 'cuckooforcanari.v2.IDToNetAnalysisSection_Cuckoo', 'cuckooforcanari.v2.FileToNetAnalysisSection_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox Analysis Sections', CuckooTaskID ), ( 'Cuckoo Sandbox Analysis Sections', CuckooMalwareFilename ) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
 
     if 'taskid' in request.fields:
         task = request.fields['taskid']

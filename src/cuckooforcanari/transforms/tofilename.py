@@ -25,9 +25,10 @@ __all__ = [
     description='Returns filename of the initial file analyzed.',
     uuids=[ 'cuckooforcanari.v2.IDToFilename_Cuckoo', 'cuckooforcanari.v2.SectionToFilename_Cuckoo' ],
     inputs=[ ( 'Cuckoo Sandbox', CuckooTaskID ), ( 'Cuckoo Sandbox', FileDetails ) ],
+    remote=False,
     debug=False
 )
-def dotransform(request, response):
+def dotransform(request, response, config):
 
     if 'taskid' in request.fields:
         task = request.fields['taskid']
