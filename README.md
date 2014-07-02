@@ -6,7 +6,7 @@ Demo Video: http://www.youtube.com/watch?v=1GGArfEijgE
 
 ## About
 
-Cuckooforcanari is a Maltego local transform project, built within the Canari Framework that integrates the Cuckoo Sandbox v0.5 API into maltego entity output.  The main goal of this project is to allow security analysts, researchers, investigators, and teams to graphically display a Cuckoo Sandbox file analysis. 
+Cuckooforcanari is a Maltego local transform project, built within the Canari Framework that integrates the Cuckoo Sandbox API into maltego entity output.  The main goal of this project is to allow security analysts, researchers, investigators, and teams to graphically display a Cuckoo Sandbox file or URL analysis. 
 
 Directory Structure:
 
@@ -20,8 +20,7 @@ Directory Structure:
 ## 2.0 - Installation
 
 ### 2.1 - Supported Platforms
-cuckooforcanari has currently been tested on Mac OS X and Linux.
-Further testing will be done on Windows in the near future.
+cuckooforcanari has currently been tested on Mac OS X and Linux.  
 
 ### 2.2 - Requirements
 cuckooforcanari is supported and tested on Python 2.7.3
@@ -30,7 +29,7 @@ The canari framework must be installed to use this package
 See: https://github.com/allfro/canari
 
 A Cuckoo Sandbox v0.5 or later local network or host installation and have the Cuckoo API running.
-See: http://www.cuckoosandbox.org/
+See: http://docs.cuckoosandbox.org/en/latest/usage/api/#starting-the-api-server  
 
 This package depends on the python requests package added requirement to setup.py will automatically download and install the requests package if needed.
 
