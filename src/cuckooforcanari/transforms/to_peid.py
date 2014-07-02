@@ -44,6 +44,7 @@ def dotransform(request, response, config):
     if secs is None:
         pass
     else:
-        response += Phrase(secs('ascii'))
+        for i in secs:
+            response += Phrase(i)
 
     return response
